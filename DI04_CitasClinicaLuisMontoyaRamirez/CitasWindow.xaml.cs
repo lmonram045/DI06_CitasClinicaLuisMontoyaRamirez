@@ -56,7 +56,7 @@ public partial class CitasWindow : Window
         CbPaciente.SelectedIndex = 0; // Seleccionamos el primer paciente por defecto.
 
         // Rellenamos el CbPaciente con los clientes de la lista de clientes
-        foreach (var cliente in _clientes.listaClientes)
+        foreach (var cliente in _clientes.ListaClientes)
         {
             CbPaciente.Items.Add(cliente.Email);
         }

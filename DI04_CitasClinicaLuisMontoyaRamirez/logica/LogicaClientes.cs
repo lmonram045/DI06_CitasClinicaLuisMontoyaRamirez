@@ -5,43 +5,43 @@ namespace DI04_CitasClinicaLuisMontoyaRamirez.logica;
 
 public class LogicaClientes
 {
-    public ObservableCollection<Cliente> listaClientes { get; set; }
-    
+    // TODO: Revisar todo por si acaso.
+    public ObservableCollection<Cliente> ListaClientes { get; set; } = new(); // La podemos declarar e inicializar así.
+
     /**
      * Constructor de la clase
      */
     public LogicaClientes()
     {
-        listaClientes = new ObservableCollection<Cliente>();
-        //  no se podrá crear paciente en esta versión, solo los que añadiré por defecto.
-        listaClientes.Add(new Cliente("lmr.87@protonmail.ch", "Luis Montoya Ramírez")); // Añadimos un cliente de ejemplo
-        listaClientes.Add(new Cliente("dale.cooper@blacklake.com", "Dale Cooper"));
-        listaClientes.Add(new Cliente("jmmillan@cardiffelectric.com", "Joe MacMillan"));
-        listaClientes.Add(new Cliente("kirklt@uspf.gov", "James Tiberius Kirk"));
-        listaClientes.Add(new Cliente("a.nadir@greendale.tk", "Abed Nadir"));
+        ListaClientes.Add(new Cliente("Luis", "Montoya Ramírez", "611221122", "luis@protonmail.ch", "45586045e", "calle falsa, 123", "01/01/1987", "")); 
+        ListaClientes.Add(new Cliente("Dale", "Cooper", "", "dale.cooper@blacklake.com", "12345678z", "708 Northwestern Street, Twin Peaks, Washington", "19/04/1954", "observacion"));
+        ListaClientes.Add(new Cliente("Joe", "MacMillan", "611223344", "jmm@cardiffelectric.com", "87654321x", "Cardiff Electric, 123", "01/01/1947", "observacion"));
+        ListaClientes.Add(new Cliente("James Tiberius", "Kirk", "", "kirklt@uspf.gov","23456789d", "Starfleet Command, 123, Riverside, Iowa", "22/03/2233", "observacion"));
+        ListaClientes.Add(new Cliente("Abed", "Nadir", "", "a.nadir@greendale.tk", "98765432m", "Greendale Community College, 123", "24/03/1979", "observacion"));
+        
     }
     
     /**
      * Método para añadir un cliente a la lista
      */
-    public void addCliente(Cliente cliente)
+    public void AddCliente(Cliente cliente)
     {
-        listaClientes.Add(cliente);
+        ListaClientes.Add(cliente);
     }
     
     /**
      * Método para modificar un cliente de la lista
      */
-    public void modCliente(Cliente cliente, int posicion)
+    public void ModCliente(Cliente cliente, int posicion)
     {
-        listaClientes[posicion] = cliente;
+        ListaClientes[posicion] = cliente;
     }
     
     /**
      * Método para eliminar un cliente de la lista
      */
-    public void eliminarCliente(int posicion)
+    public void EliminarCliente(int posicion)
     {
-        listaClientes.RemoveAt(posicion);
+        ListaClientes.RemoveAt(posicion);
     }
 }
