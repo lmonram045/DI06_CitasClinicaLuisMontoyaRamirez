@@ -1,0 +1,68 @@
+﻿
+<Window x:Class="DI04_CitasClinicaLuisMontoyaRamirez.PerfilDeCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:uc="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez.componentes"
+        mc:Ignorable="d"
+        Title="Perfil de Cliente" Height="400" Width="600">
+    <Grid x:Name="GridDatosCliente" Validation.Error="Validation_Error">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Content="Nombre:" />
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="TbNombre"
+                 Text="{Binding .Nombre, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                 LostFocus="TbNombre_OnLostFocus" TextChanged="TbNombre_OnTextChanged"/>
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="Apellidos:" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="TbApellidos"
+                 Text="{Binding .Apellidos, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" 
+                 LostFocus="TbApellidos_OnLostFocus" TextChanged="TbApellidos_OnTextChanged"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Content="Teléfono:" />
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TbTelefono"
+                 Text="{Binding .Telefono, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" 
+                 LostFocus="TbTelefono_OnLostFocus" TextChanged="TbTelefono_OnTextChanged"/>
+        
+        <Label Grid.Row="3" Grid.Column="0" Content="Email:" />
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="TbEmail"
+                 Text="{Binding .Email, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                 LostFocus="TbEmail_OnLostFocus" TextChanged="TbEmail_OnTextChanged"/>
+        
+        <Label Grid.Row="4" Grid.Column="0" Content="DNI:" />
+        <uc:DniLetraComponente Grid.Row="4" Grid.Column="1" x:Name="DniComponente" LongitudNumero="8" />
+        
+        <Label Grid.Row="5" Grid.Column="0" Content="Dirección física:" />
+        <TextBox Grid.Row="5" Grid.Column="1" x:Name="TbDireccion"
+                 Text="{Binding .Direccion, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                 LostFocus="TbDireccion_OnLostFocus" TextChanged="TbDireccion_OnTextChanged"/>
+        
+        <Label Grid.Row="6" Grid.Column="0" Content="Fecha de nacimiento:" />
+        <DatePicker Grid.Row="6" Grid.Column="1" x:Name="DpFechaNacimiento"
+                    SelectedDate="{Binding .FechaNacimiento, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+        
+        <Label Grid.Row="7" Grid.Column="0" Content="Observaciones:" />
+        <TextBox Grid.Row="7" Grid.Column="1" x:Name="TbObservaciones"
+                 Text="{Binding .Observaciones, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                 TextWrapping="Wrap" />
+        
+        <!-- Botón para guardar los cambios -->
+        <Button Grid.Row="8" x:Name="BtnGuardar" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Content="Guardar cambios" Click="BtnGuardar_OnClick" IsEnabled="{Binding ElementName=GridDatosCliente}" />
+    </Grid>
+</Window>
