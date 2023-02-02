@@ -1,0 +1,16 @@
+﻿<Window x:Class="DI04_CitasClinicaLuisMontoyaRamirez.TablaCitasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
+        mc:Ignorable="d"
+        Title="Tabla de Citas" Height="450" Width="800">
+    <Grid>
+        <!-- DataGrid donde irán las citas -->
+        <DataGrid x:Name="DataGridCitas" Margin="10,50,10,100" ItemsSource="{Binding Path=listaCitas}" AutoGenerateColumns="True"/>
+        <!-- Botón para volver, en esta pantalla, solo se podrán ver las citas -->
+        <Button x:Name="BtnVolver" Content="Volver" HorizontalAlignment="Left" Width="100" Height="30" Click="BtnVolver_Click" Margin="420,354,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Width="100" Margin="274,354,0,0" Height="30" VerticalAlignment="Top" Click="BtnEliminar_Click"/>
+    </Grid>
+</Window>

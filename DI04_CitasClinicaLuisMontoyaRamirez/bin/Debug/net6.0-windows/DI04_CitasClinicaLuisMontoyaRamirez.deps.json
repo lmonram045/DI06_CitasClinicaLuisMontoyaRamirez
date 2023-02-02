@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DI04_CitasClinicaLuisMontoyaRamirez/1.0.0": {
+        "runtime": {
+          "DI04_CitasClinicaLuisMontoyaRamirez.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DI04_CitasClinicaLuisMontoyaRamirez/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,42 @@
+﻿<Window x:Class="DI04_CitasClinicaLuisMontoyaRamirez.CitasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
+        mc:Ignorable="d"
+        Title="CitasWindow" Height="300" Width="781">
+    <!-- Dialogo para añadir citas -->
+        <Grid x:Name="gridAddCita" Visibility="Visible" Height="425" VerticalAlignment="Top" Validation.Error="Validation_Error">
+            <!-- Propiedades de las columnas del grid -->
+            <Grid.ColumnDefinitions> <!-- Tiene 2 columnas, la 0 con ancho automático y la 1 con ancho estirado -->
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Propiedades de las filas del grid, serán 6 filas (0 a 5), de altura automática. -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100"/> <!-- La fila 4, Observaciones tendrá un alto de 100 -->
+                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Fecha" Grid.Row="0" Grid.Column="0"/>
+            <!-- En el DatePicker, elijo el evento CalendarClosed para que la compruebe, justo al elegir la fecha y cerrar el calendario -->
+            <DatePicker x:Name="DpFecha" Grid.Row="0" Grid.Column="1" SelectedDate="{Binding Fecha, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" CalendarClosed="DpFecha_OnCalendarClosed"/>
+            <Label Content="Hora" Grid.Row="1" Grid.Column="0"/>
+            <ComboBox x:Name="CbHora" Grid.Row="1" Grid.Column="1" SelectedValue="{Binding Hora, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+            <Label Content="Paciente" Grid.Row="2" Grid.Column="0"/>
+            <ComboBox x:Name="CbPaciente" Grid.Row="2" Grid.Column="1" SelectedValue="{Binding Email, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <Label Content="Motivo" Grid.Row="3" Grid.Column="0"/>
+            <TextBox x:Name="TbMotivo" Grid.Row="3" Grid.Column="1" Text="{Binding Motivo, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" LostFocus="TbMotivo_OnLostFocus" />
+            <Label Content="Observaciones" Grid.Row="4" Grid.Column="0"/>
+            <TextBox x:Name="TbObservaciones" Grid.Row="4" Grid.Column="1" Text="{Binding Observaciones, NotifyOnValidationError=False, ValidatesOnDataErrors=True}"/>
+            <Label Content="Método de pago" Grid.Row="5" Grid.Column="0"/>
+            <ComboBox x:Name="CbMetodoPago" Grid.Row="5" Grid.Column="1" SelectedValue="{Binding MetodoPago, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+            <Button x:Name="BtnAddCita" Content="Añadir" Grid.Row="6" Grid.Column="0" Click="BtnAddCita_OnClick"/>
+            <Button x:Name="BtnCancelCita" Content="Cancelar" Grid.Row="6" Grid.Column="1" Click="BtnCancelCita_OnClick"/>
+        </Grid>
+</Window>
