@@ -6,16 +6,23 @@
         xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
         mc:Ignorable="d"
         Title="MainWindow" Height="270" Width="600">
-    <Grid Margin="0,0,0,2">
+    <Grid>
         <!-- barra de menu superior -->
         <!-- con Grid.RowDefinitions consigo que se quede en la parte superior -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
         <!-- Creo el menu superior -->
-        <Menu Background="LightGray">
+        <Menu Grid.Row="0" Grid.ColumnSpan="3">
             <MenuItem Header="Archivo">
+                <MenuItem Header="Perfil de Cliente" Click="PerfilDeCliente_OnClick" />
                 <MenuItem Header="Salir" Click="Salir_Click"/>
             </MenuItem>
             <MenuItem Header="Citas">
@@ -23,8 +30,10 @@
                 <MenuItem Header="Ver citas..." Click="btnVerCita_Click"/>
             </MenuItem>
         </Menu>
-        <!-- Creo los botones -->
-        <Button x:Name="BtnAddCita" Content="Nueva cita..." HorizontalAlignment="Left" Margin="25,25,0,0" Grid.Row="1" VerticalAlignment="Top" Height="166" Width="244" Click="btnAddCita_Click"/>
-        <Button x:Name="BtnVerCitas" Content="Ver citas..." HorizontalAlignment="Right" Margin="0,25,25,0" Grid.Row="1" VerticalAlignment="Top" Height="166" Width="244" Click="btnVerCita_Click"/>
+        
+        <Button x:Name="BtnAddCita" Grid.Row="1" Grid.Column="0" Content="Nueva Cita" Margin="5" Click="btnAddCita_Click"/>
+        <Button x:Name="BtnVerCitas" Grid.Row="1" Grid.Column="1" Content="Ver Citas" Margin="5" Click="btnVerCita_Click"/>
+        <Button x:Name="BtnPerfilDeCliente" Grid.Row="1" Grid.Column="2" Content="Perfil de Cliente" Margin="5" Click="PerfilDeCliente_OnClick"/>
+        
     </Grid>
 </Window>

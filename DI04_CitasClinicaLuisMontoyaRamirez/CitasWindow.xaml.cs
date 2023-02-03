@@ -28,6 +28,17 @@ public partial class CitasWindow : Window
         DataContext = _cita;
         _citas = citas;
     }
+    
+    public CitasWindow(LogicaCitas citas, LogicaClientes clientes)
+    {
+        _clientes = clientes;
+        InitializeComponent();
+        AddDatosComponentes(); // Creo este metodo para meter los datos a los combobox.
+        _modificar = false;
+        _cita = new Cita();
+        DataContext = _cita;
+        _citas = citas;
+    }
 
     /**
      * Constructor para modificar una cita
