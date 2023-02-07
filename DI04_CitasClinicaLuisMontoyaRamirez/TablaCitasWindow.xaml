@@ -5,12 +5,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
         mc:Ignorable="d"
-        Title="Tabla de Citas" Height="450" Width="800">
-    <Grid>
+        MinHeight="300" MinWidth="400"
+        MaxHeight="600" MaxWidth="800"
+        Title="Tabla de Citas" Height="450" Width="650">
+    <Grid x:Name="TablaGrid">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
         <!-- DataGrid donde irán las citas -->
-        <DataGrid x:Name="DataGridCitas" Margin="10,50,10,100" ItemsSource="{Binding Path=listaCitas}" AutoGenerateColumns="True"/>
+        <!--<DataGrid x:Name="DataGridCitas" Margin="10,50,10,100" ItemsSource="{Binding Path=listaCitas}" AutoGenerateColumns="False"/>-->
+        <DataGrid x:Name="DataGridCitas" 
+                  Grid.Row="0"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10,10,10,10">
+            
+            <!-- Columnas del DataGrid -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Día" Binding="{Binding Dia}" Width="Auto"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" Width="Auto"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="Auto"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="Auto"/>
+                <DataGridTextColumn Header="Motivo" Binding="{Binding Motivo}" Width="*"/>
+                <DataGridTextColumn Header="Observaciones" Binding="{Binding Observaciones}" Width="*"/>
+                <DataGridTextColumn Header="Forma de Pago" Binding="{Binding FormaPago}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="BtnVolver" Content="Volver" Width="100" Height="30" Click="BtnVolver_Click" Margin="20,20,20,20"/>
+            <Button x:Name="BtnEliminar" Content="Eliminar" Width="100" Height="30" Click="BtnEliminar_Click" Margin="20,20,20,20"/>
+        </StackPanel>
         <!-- Botón para volver, en esta pantalla, solo se podrán ver las citas -->
-        <Button x:Name="BtnVolver" Content="Volver" HorizontalAlignment="Left" Width="100" Height="30" Click="BtnVolver_Click" Margin="420,354,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Width="100" Margin="274,354,0,0" Height="30" VerticalAlignment="Top" Click="BtnEliminar_Click"/>
+        
     </Grid>
 </Window>

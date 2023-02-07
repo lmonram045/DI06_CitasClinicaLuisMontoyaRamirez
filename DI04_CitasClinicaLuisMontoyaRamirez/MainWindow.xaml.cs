@@ -34,7 +34,7 @@ namespace DI04_CitasClinicaLuisMontoyaRamirez
 
         private void btnVerCita_Click(object sender, RoutedEventArgs e)
         {
-            TablaCitasWindow tablaCitasWindow = new TablaCitasWindow(_logicaCitas);
+            TablaCitasWindow tablaCitasWindow = new TablaCitasWindow(_logicaCitas, _logicaClientes);
             tablaCitasWindow.Show(); // ShowDialog, modal, Show, no modal
         }
 
