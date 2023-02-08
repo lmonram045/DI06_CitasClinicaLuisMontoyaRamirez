@@ -6,7 +6,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:uc="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez.componentes"
         mc:Ignorable="d"
-        Title="Perfil de Cliente" Height="400" Width="600">
+        Title="Añadir Cliente" Height="275" Width="600" ResizeMode="NoResize"
+        KeyDown="PerfilDeCliente_OnKeyDown">
     <Grid x:Name="GridDatosCliente" Validation.Error="Validation_Error">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using DI04_CitasClinicaLuisMontoyaRamirez.dto;
 using DI04_CitasClinicaLuisMontoyaRamirez.logica;
 
@@ -108,7 +109,7 @@ public partial class PerfilDeCliente
     {
         if (Validation.GetHasError(TbEmail))
         {
-            MessageBox.Show("El email no tiene un formato correcto.");
+            MessageBox.Show("El email no tiene un formato correcto. Debe tener entre 3 y 50 carácteres y seguir el siguiente formato: xxxx@xxxxx.xxx");
         }
     }
 
@@ -193,7 +194,8 @@ public partial class PerfilDeCliente
         else
         {
             Validation.MarkInvalid(TbEmail.GetBindingExpression(TextBox.TextProperty),
-                new ValidationError(new ExceptionValidationRule(), "El email no tiene un formato correcto."));
+                new ValidationError(new ExceptionValidationRule(), 
+                    "El email no tiene un formato correcto. Debe tener entre 3 y 50 carácteres y seguir el siguiente formato: xxxx@xxxxx.xxx"));
         }
     }
 
@@ -212,6 +214,15 @@ public partial class PerfilDeCliente
             Validation.MarkInvalid(TbDireccion.GetBindingExpression(TextBox.TextProperty),
                 new ValidationError(new ExceptionValidationRule(),
                     "La dirección no tiene un formato correcto. Debe tener entre 3 y 50 carácteres."));
+        }
+    }
+
+    private void PerfilDeCliente_OnKeyDown(object sender, KeyEventArgs e)
+    {
+        // Al pulsar Escape, se cierra la ventana.
+        if (e.Key == Key.Escape)
+        {
+            Close();
         }
     }
 }

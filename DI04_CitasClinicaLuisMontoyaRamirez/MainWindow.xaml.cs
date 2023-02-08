@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using DI04_CitasClinicaLuisMontoyaRamirez.logica;
 
 namespace DI04_CitasClinicaLuisMontoyaRamirez
@@ -43,6 +44,23 @@ namespace DI04_CitasClinicaLuisMontoyaRamirez
             // Abre la ventana de perfil de cliente
             PerfilDeCliente perfilDeCliente = new PerfilDeCliente(_logicaClientes);
             perfilDeCliente.ShowDialog(); // Dialogo modal.
+        }
+        
+        /* Atajos de teclado */
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.N when Keyboard.IsKeyDown(Key.LeftCtrl):
+                    btnAddCita_Click(sender, e);
+                    break;
+                case Key.V when Keyboard.IsKeyDown(Key.LeftCtrl):
+                    btnVerCita_Click(sender, e);
+                    break;
+                case Key.C when Keyboard.IsKeyDown(Key.LeftCtrl):
+                    PerfilDeCliente_OnClick(sender, e);
+                    break;
+            }
         }
     }
 }

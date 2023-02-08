@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
         mc:Ignorable="d"
-        Title="MainWindow" Height="270" Width="600">
+        Title="Gestión de citas Clínica Al-Ándalus" Height="270" Width="600" ResizeMode="NoResize"
+        KeyDown="MainWindow_OnKeyDown">
     <Grid>
         <!-- barra de menu superior -->
         <!-- con Grid.RowDefinitions consigo que se quede en la parte superior -->
@@ -22,18 +23,20 @@
         <!-- Creo el menu superior -->
         <Menu Grid.Row="0" Grid.ColumnSpan="3">
             <MenuItem Header="Archivo">
-                <MenuItem Header="Perfil de Cliente" Click="PerfilDeCliente_OnClick" />
-                <MenuItem Header="Salir" Click="Salir_Click"/>
+                <MenuItem Header="Salir (Alt + F4)" Click="Salir_Click"/>
             </MenuItem>
             <MenuItem Header="Citas">
-                <MenuItem Header="Nueva cita..." Click="btnAddCita_Click"/>
-                <MenuItem Header="Ver citas..." Click="btnVerCita_Click"/>
+                <MenuItem Header="Nueva cita... (Ctrl + n)" Click="btnAddCita_Click" />
+                <MenuItem Header="Ver citas... (Ctrl + v)" Click="btnVerCita_Click" />
+            </MenuItem>
+            <MenuItem Header="Clientes">
+                <MenuItem Header="Nuevo cliente... (Ctrl + c)" Click="PerfilDeCliente_OnClick" />
             </MenuItem>
         </Menu>
         
         <Button x:Name="BtnAddCita" Grid.Row="1" Grid.Column="0" Content="Nueva Cita" Margin="5" Click="btnAddCita_Click"/>
         <Button x:Name="BtnVerCitas" Grid.Row="1" Grid.Column="1" Content="Ver Citas" Margin="5" Click="btnVerCita_Click"/>
-        <Button x:Name="BtnPerfilDeCliente" Grid.Row="1" Grid.Column="2" Content="Perfil de Cliente" Margin="5" Click="PerfilDeCliente_OnClick"/>
+        <Button x:Name="BtnPerfilDeCliente" Grid.Row="1" Grid.Column="2" Content="Nuevo Cliente" Margin="5" Click="PerfilDeCliente_OnClick"/>
         
     </Grid>
 </Window>

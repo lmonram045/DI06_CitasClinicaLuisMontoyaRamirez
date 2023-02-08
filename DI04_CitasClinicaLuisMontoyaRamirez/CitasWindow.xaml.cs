@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using DI04_CitasClinicaLuisMontoyaRamirez.dto;
 using DI04_CitasClinicaLuisMontoyaRamirez.logica;
 
@@ -124,6 +125,14 @@ public partial class CitasWindow : Window
         if (DpFecha.SelectedDate < DateTime.Now)
         {
             MessageBox.Show("La fecha no puede ser anterior a la actual", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void CitasWindow_OnKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape)
+        {
+            Close();
         }
     }
 }

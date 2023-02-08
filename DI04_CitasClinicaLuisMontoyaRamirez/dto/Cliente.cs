@@ -199,7 +199,7 @@ public class Cliente : INotifyPropertyChanged, ICloneable, IDataErrorInfo
                 case "Email":
                     if (!Regex.IsMatch(this._email, RegexEmail))
                     {
-                        result = "El email no tiene formato correcto";
+                        result = "El email no tiene un formato correcto. Debe tener entre 3 y 50 carácteres y seguir el siguiente formato: xxxx@xxxxx.xxx";
                     }
                     break;
                 

@@ -5,7 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:DI04_CitasClinicaLuisMontoyaRamirez"
         mc:Ignorable="d"
-        Title="CitasWindow" Height="300" Width="781">
+        Title="CitasWindow" Height="290" Width="750" ResizeMode="NoResize"
+        KeyDown="CitasWindow_OnKeyDown">
     <!-- Dialogo para añadir citas -->
         <Grid x:Name="gridAddCita" Visibility="Visible" Height="425" VerticalAlignment="Top" Validation.Error="Validation_Error">
             <!-- Propiedades de las columnas del grid -->
